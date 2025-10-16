@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ofevtd51v3a"]
+
+[ext_resource type="Script" uid="uid://bxnagrjuup2xt" path="res://Scripts/GameLobbyUI.gd" id="1_sny37"]
+
+[node name="GameLobbyUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sny37")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ContentVBox" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(960, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MainHBox" type="HBoxContainer" parent="MarginContainer/ContentVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="LeftPanel" type="VBoxContainer" parent="MarginContainer/ContentVBox/MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/ContentVBox/MainHBox/LeftPanel"]
+layout_mode = 2
+text = "Jugadores en la Sala"
+
+[node name="PlayerSlotsVBox" type="VBoxContainer" parent="MarginContainer/ContentVBox/MainHBox/LeftPanel"]
+layout_mode = 2
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/ContentVBox/MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 30
+
+[node name="ListsHBox" type="HBoxContainer" parent="MarginContainer/ContentVBox/MainHBox/RightPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="CharactersPanel" type="VBoxContainer" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox/CharactersPanel"]
+layout_mode = 2
+text = "Personajes"
+
+[node name="CharacterList" type="ItemList" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox/CharactersPanel"]
+layout_mode = 2
+
+[node name="GamesPanel" type="VBoxContainer" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox/GamesPanel"]
+layout_mode = 2
+text = "Partidas"
+
+[node name="GameList" type="ItemList" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox/GamesPanel"]
+layout_mode = 2
+
+[node name="ActionButtonsHBox" type="HBoxContainer" parent="MarginContainer/ContentVBox/MainHBox/RightPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="CreateCharacterButton" type="Button" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ActionButtonsHBox"]
+layout_mode = 2
+text = "Crear Personaje"
+
+[node name="CreateGameButton" type="Button" parent="MarginContainer/ContentVBox/MainHBox/RightPanel/ActionButtonsHBox"]
+layout_mode = 2
+text = "Crear Partida"
+
+[node name="Spacer" type="Control" parent="MarginContainer/ContentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomPanel" type="HBoxContainer" parent="MarginContainer/ContentVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="LeaveButton" type="Button" parent="MarginContainer/ContentVBox/BottomPanel"]
+layout_mode = 2
+text = "Abandonar Partida"
+
+[node name="Spacer" type="Control" parent="MarginContainer/ContentVBox/BottomPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="MarginContainer/ContentVBox/BottomPanel"]
+layout_mode = 2
+text = "Comenzar Partida"
+
+[node name="InviteButton" type="Button" parent="MarginContainer/ContentVBox/BottomPanel"]
+layout_mode = 2
+text = "Comenzar Partida"
+
+[node name="ReadyButton" type="Button" parent="MarginContainer/ContentVBox/BottomPanel"]
+layout_mode = 2
+text = "Listo"
+
+[node name="NameDialog" type="ConfirmationDialog" parent="."]
+title = "Crear Nuevo Personaje"
+ok_button_text = "Crear"
+
+[node name="NameEdit" type="LineEdit" parent="NameDialog"]
+offset_right = 68.5625
+offset_bottom = 31.0
+
+[connection signal="item_selected" from="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox/CharactersPanel/CharacterList" to="." method="_on_character_list_item_selected"]
+[connection signal="item_selected" from="MarginContainer/ContentVBox/MainHBox/RightPanel/ListsHBox/GamesPanel/GameList" to="." method="_on_game_list_item_selected"]
+[connection signal="pressed" from="MarginContainer/ContentVBox/MainHBox/RightPanel/ActionButtonsHBox/CreateCharacterButton" to="." method="_on_create_character_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ContentVBox/MainHBox/RightPanel/ActionButtonsHBox/CreateGameButton" to="." method="_on_create_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ContentVBox/BottomPanel/LeaveButton" to="." method="_on_leave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ContentVBox/BottomPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ContentVBox/BottomPanel/InviteButton" to="." method="_on_invite_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ContentVBox/BottomPanel/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="confirmed" from="NameDialog" to="." method="_on_name_dialog_confirmed"]

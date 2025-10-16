@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=5 format=3 uid="uid://cxwt2wwemtkaa"]
+
+[ext_resource type="Script" uid="uid://5wst5p0fg2tu" path="res://Scripts/EquipmentItem.gd" id="1_od8f6"]
+[ext_resource type="Resource" uid="uid://c5vwwhqynx40k" path="res://CascoFuerza.tres" id="2_jvhgc"]
+[ext_resource type="Script" uid="uid://cl6kslb8bkacy" path="res://Scripts/Inventory.gd" id="3_3lew3"]
+[ext_resource type="Resource" uid="uid://dq5402nxw80eq" path="res://PechoFuerza.tres" id="3_jvhgc"]
+
+[resource]
+script = ExtResource("3_3lew3")
+items = Array[ExtResource("1_od8f6")]([ExtResource("2_jvhgc"), ExtResource("3_jvhgc")])
+metadata/_custom_type_script = "uid://cl6kslb8bkacy"
