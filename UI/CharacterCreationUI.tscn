@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://bejnasxh08id"]
+
+[ext_resource type="Script" uid="uid://ik3f5arvatbk" path="res://UI/CharacterCreationUI.gd" id="1_xv6uc"]
+
+[node name="CharacterCreationUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xv6uc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.23921569, 0.20784314, 0.16470589, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 53.0
+offset_right = 627.0
+offset_bottom = 93.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Crea tu Personaje"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Puntos Restantes: 20"
+
+[node name="StatsContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Fuerza" type="Label" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="StrengthSpinBox" type="SpinBox" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+max_value = 20.0
+value = 1.0
+
+[node name="Destreza" type="Label" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="DexteritySpinBox" type="SpinBox" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="Inteligencia" type="Label" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="IntelligenceSpinBox" type="SpinBox" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="Resistencia" type="Label" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="EnduranceSpinBox" type="SpinBox" parent="VBoxContainer/StatsContainer"]
+layout_mode = 2

@@ -3,15 +3,19 @@
 [ext_resource type="Script" uid="uid://b12v2egml3kku" path="res://Scripts/PlayerSlot.gd" id="1_yl0ii"]
 
 [node name="PlayerSlot" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 69.0
+offset_bottom = 64.0
 script = ExtResource("1_yl0ii")
 
-[node name="AvatarTexture" type="TextureRect" parent="."]
+[node name="PlayerAvatarTexture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="PlayerNameLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2

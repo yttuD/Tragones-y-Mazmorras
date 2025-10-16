@@ -13,6 +13,12 @@ size_flags_horizontal = 2
 size_flags_vertical = 6
 script = ExtResource("1_uahxu")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.23921569, 0.20784314, 0.16470589, 1)
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15

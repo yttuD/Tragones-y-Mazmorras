@@ -21,6 +21,7 @@ MusicManager="*res://Music/MusicManager.tscn"
 ProfileManager="*res://Scripts/ProfileManager.gd"
 GameManager="*res://Scripts/GameManager.gd"
 SessionData="*res://Scripts/SessionData.gd"
+SaveManager="*res://Scripts/SaveManager.gd"
 
 [debug]
 

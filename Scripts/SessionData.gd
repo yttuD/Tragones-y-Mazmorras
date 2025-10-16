@@ -1,15 +1,17 @@
 # SessionData.gd
-
 extends Node
 
-# El personaje seleccionado para la partida actual
-var selected_character: Character 
-
-# El ID del lobby de Steam al que estamos conectados
+# El ID del lobby de Steam en el que estamos actualmente
 var current_lobby_id: int = 0
 
-# El nombre del archivo de guardado que el host ha cargado
-var current_game_save_name: String = ""
+# El SteamID del anfitrión (Host/Owner) del lobby
+var owner_id: int = 0
 
-# ¿Somos nosotros los que hemos creado el lobby?
-var is_host: bool = false
+# Este diccionario almacenará el estado de todos los jugadores en el lobby.
+# Lo inicializamos con una estructura 'players' vacía.
+var game_state: Dictionary = {
+	"players": {},
+	"selected_game": ""
+}
+# Variable para saber qué partida cargar al entrar a Main.tscn
+var selected_game_to_load: String = ""

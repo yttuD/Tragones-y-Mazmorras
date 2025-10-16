@@ -61,3 +61,22 @@ func create_new_character(character_name: String):
 		save_profile()
 	else:
 		print("ProfileManager: El personaje '", character_name, "' ya existe.")
+
+func create_new_character_with_stats(character_name: String, stats: Dictionary):
+	if not current_profile.characters.has(character_name):
+		var new_player_data = PlayerData.new()
+		var new_stats = Stats.new()
+		
+		new_stats.character_name = character_name
+		new_stats.fuerza = stats.get("fuerza", 1)
+		new_stats.destreza = stats.get("destreza", 1)
+		new_stats.inteligencia = stats.get("inteligencia", 1)
+		new_stats.resistencia = stats.get("resistencia", 1)
+		
+		new_player_data.base_stats = new_stats
+		
+		current_profile.characters[character_name] = new_player_data
+		print("ProfileManager: Personaje '", character_name, "' creado con estadísticas personalizadas.")
+		save_profile()
+	else:
+		print("ProfileManager: El personaje '", character_name, "' ya existe.")
