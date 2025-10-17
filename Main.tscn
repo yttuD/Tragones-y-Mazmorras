@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://duix86anb74gv"]
+
+[ext_resource type="PackedScene" uid="uid://dscr7trc60aj5" path="res://Player.tscn" id="1_r0du0"]
+[ext_resource type="Resource" uid="uid://dgl7nkagg2xxu" path="res://DefaultPlayerData.tres" id="2_cm0pq"]
+[ext_resource type="Resource" uid="uid://cxwt2wwemtkaa" path="res://InventoryTest.tres" id="3_fos0i"]
+[ext_resource type="PackedScene" uid="uid://bq7rsfk2882dk" path="res://UI/InventoryUI.tscn" id="4_cm0pq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+
+[node name="Main" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.04229412, 0.9991052, 0, -0.9991052, 0.04229412, 0, 14.25322, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, -1, 0)
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, -1, 0)
+mesh = SubResource("BoxMesh_ig7tw")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Player" parent="." instance=ExtResource("1_r0du0")]
+player_data = ExtResource("2_cm0pq")
+inventory = ExtResource("3_fos0i")
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_cm0pq")]
